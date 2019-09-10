@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
+
+Auth::routes(['register' => false]);
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

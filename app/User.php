@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'title', 'password',
     ];
 
     /**
@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * A user has many projects.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
