@@ -15,4 +15,5 @@ Route::get('/', 'PageController@index');
 
 Auth::routes(['register' => false]);
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::post('new', 'DashboardController@add')->name('new.project');

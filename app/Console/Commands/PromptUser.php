@@ -14,7 +14,7 @@ class PromptUser extends Command
      *
      * @var string
      */
-    protected $signature = 'prompt';
+    protected $signature = 'prompt:user';
 
     /**
      * The console command description.

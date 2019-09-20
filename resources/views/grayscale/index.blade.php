@@ -77,24 +77,31 @@
         </div>
 
         <div class="social d-flex justify-content-center">
-            <a href="#" class="mx-2">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="mx-2">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="#" class="mx-2">
-                <i class="fab fa-stack-overflow"></i>
-            </a>
-            <a href="#" class="mx-2">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="#" class="mx-2">
-                <i class="fab fa-dribbble"></i>
-            </a>
-            <a href="#" class="mx-2">
-                <i class="fab fa-codepen"></i>
-            </a>
+            @if(!is_null($user->linkedin))
+                <a href="{{$user->linkedin}}" class="mx-2">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            @endif
+            @if(!is_null($user->github))
+                <a href="{{$user->github}}" class="mx-2">
+                    <i class="fab fa-github"></i>
+                </a>
+            @endif
+            @if(!is_null($user->stack_overflow))
+                <a href="{{$user->stack_overflow}}" class="mx-2">
+                    <i class="fab fa-stack-overflow"></i>
+                </a>
+            @endif
+            @if(!is_null($user->youtube))
+                <a href="{{$user->youtube}}" class="mx-2">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            @endif
+            @if(!is_null($user->resume))
+                <a href="{{$user->resume}}" class="mx-2">
+                    <i class="fa fa-file"></i>
+                </a>
+            @endif
         </div>
 
     </div>

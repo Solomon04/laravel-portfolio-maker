@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateProject;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -33,14 +32,23 @@ class DashboardController extends Controller
         return view('dashboard.projects.show')->with('projects', $projects);
     }
 
-    public function create(CreateProject $request)
+    public function add(Request $request)
     {
+        $skills = explode(',', $request->skills);
         $project = new Project();
+        $project->user_id = Auth::user()->id;
         $project->title = $request->title;
         $project->description = $request->description;
-        $project->image = $request->image;
-        $project->skill = $request->skills;
-        $project->call_to_action = ['url' => $request->coa_url, 'name' => $request->coa_name];
+        $project->image = $request->image_url;
+        $project->skills = $skills;
+        $project->call_to_action = ['url' => $request->button_url, 'name' => $request->button_description];
         $project->save();
+
+        return back()->with('success', sprintf('%s has been added.', $request->title));
+    }
+
+    public function social(Request $request)
+    {
+
     }
 }
